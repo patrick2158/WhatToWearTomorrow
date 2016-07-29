@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WtwtController {
 
 	@RequestMapping(value = "/")
-	public String home() {
-		return "home";
+	public String enter() {
+		return "clothes";
 	}
 }
