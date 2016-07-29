@@ -37,10 +37,10 @@
 						value="" data-clear-btn="true" placeholder="Name" type="text"></li>
 					<li class="ui-field-contain">
 						<fieldset data-role="controlgroup" data-type="horizontal">
-							<input name="radio-choice-h-2" id="radio-choice-h-2a" value="male"
+							<input name="radio-choice-h-2" id="radio-choice-h-2a" value="m"
 								checked="checked" type="radio"> <label
 								for="radio-choice-h-2a">Male</label> <input
-								name="radio-choice-h-2" id="radio-choice-h-2b" value="female"
+								name="radio-choice-h-2" id="radio-choice-h-2b" value="f"
 								type="radio"> <label for="radio-choice-h-2b">Female</label>
 						</fieldset>
 					</li>

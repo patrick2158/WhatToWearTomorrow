@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="com.msk.wtwt.mapper.PeopleMapper">
+
+	<resultMap type="com.msk.wtwt.dto.People" id="peopleResultMap">
+		<result property="email" column="EMAIL" />
+		<result property="password" column="PASSWORD" />
+		<result property="name" column="NAME" />
+		<result property="sex" column="SEX" />
+	</resultMap>
+	
+	<insert id="insertPerson" parameterType="com.msk.wtwt.dto.People" >
+		INSERT INTO people VALUES (#{email},#{password},#{name},#{sex})
+	</insert>	
+
+	<select id="selectPerson" resultMap="peopleResultMap" parameterType="String">
+		SELECT * FROM people WHERE email=#{email}
+	</select>
+
+	<update id="updatePerson" parameterType="com.msk.wtwt.dto.People">
+		UPDATE people SET password=#{password}, name=#{name}, sex=#{sex} WHERE email=#{email}
+	</update>
+	
+	<delete id="deletePerson" parameterType="String">
+		DELETE people WHERE email=#{email}
+	</delete>
+	
+</mapper>
