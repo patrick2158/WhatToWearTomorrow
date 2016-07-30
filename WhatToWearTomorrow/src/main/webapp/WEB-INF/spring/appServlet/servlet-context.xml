@@ -28,7 +28,7 @@
 			<beans:value>oracle.jdbc.driver.OracleDriver</beans:value>
 		</beans:property>
 		<beans:property name="url">
-			<beans:value>jdbc:oracle:thin:@192.168.14.36:1521:XE</beans:value>
+			<beans:value>jdbc:oracle:thin:@127.0.0.1:1521:XE</beans:value>
 		</beans:property>
 		<beans:property name="username">
 			<beans:value>wtwt</beans:value>
@@ -46,12 +46,12 @@
 	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<beans:property name="typeAliasesPackage" value="mybatis" />
-		<beans:property name="mapperLocations" value="classpath:/com/kitri04/openmarket/res/*.xml" />
+		<beans:property name="mapperLocations" value="classpath:/com/msk/wtwt/res/*.xml" />
 	</beans:bean>
 	
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</beans:bean>
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
+	<!-- <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/> -->
 </beans:beans>
