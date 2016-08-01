@@ -22,9 +22,9 @@ public class PeopleService {
 		peopleMapper.insertPerson(person);
 	}
 	
-	public void selcetPerson(String email) {
+	public People selcetPerson(String email) {
 		PeopleMapper peopleMapper = sqlSession.getMapper(PeopleMapper.class);
-		peopleMapper.selectPerson(email);
+		return peopleMapper.selectPerson(email);
 	}
 	public void editPerson(People person) {
 		PeopleMapper peopleMapper = sqlSession.getMapper(PeopleMapper.class);

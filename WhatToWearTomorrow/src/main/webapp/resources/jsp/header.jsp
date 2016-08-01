@@ -16,7 +16,7 @@
 <script>
 	$('li').click(function(e) {
 		if(e.target.id=="home") {
-			$(location).attr('href', "${pageContext.request.contextPath}/")
+			$(location).attr('href', "${pageContext.request.contextPath}/goHome.do")
 		} else if(e.target.id=="clothes") {
 			$(location).attr('href', "${pageContext.request.contextPath}/goClothes.do")
 		} else if(e.target.id=="favorites") {
