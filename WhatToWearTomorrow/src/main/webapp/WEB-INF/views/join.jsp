@@ -10,6 +10,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/imgareaselect-default.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -18,7 +20,7 @@
 	<div data-role="page" id="join">
 
 		<div data-role="header">
-			<img alt="main image"
+			<img alt="main image" id="photo"
 				src="${pageContext.request.contextPath}/resources/img/homeMain.jpg">
 		</div>
 		<!-- /header -->
@@ -40,9 +42,9 @@
 								<fieldset data-role="controlgroup" data-type="horizontal">
 									<input name="sex" id="radio-choice-h-2a" value="m"
 										checked="checked" type="radio"> <label
-										for="radio-choice-h-2a">Male</label> <input
-										name="sex" id="radio-choice-h-2b" value="f"
-										type="radio"> <label for="radio-choice-h-2b">Female</label>
+										for="radio-choice-h-2a">Male</label> <input name="sex"
+										id="radio-choice-h-2b" value="f" type="radio"> <label
+										for="radio-choice-h-2b">Female</label>
 								</fieldset>
 							</div>
 							<div class="ui-block-b">
@@ -57,7 +59,8 @@
 			<ul data-role="listview" data-inset="true">
 				<li data-role="list-divider">Do you already have registered an
 					account?</li>
-				<li class="ui-field-contain"><a href="${pageContext.request.contextPath}/goLogin.do">Login</a></li>
+				<li class="ui-field-contain"><a
+					href="${pageContext.request.contextPath}/goLogin.do">Login</a></li>
 			</ul>
 		</div>
 		<!-- /content -->

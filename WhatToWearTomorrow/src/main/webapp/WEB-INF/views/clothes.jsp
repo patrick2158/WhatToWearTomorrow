@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -31,10 +30,10 @@
 		</div>
 		<!-- /content -->
 
-		<div data-role="footer">
+		<div data-role="footer" data-position="fixed">
 			<h2>Items</h2>
-			<a href="#"
-				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus">Add</a>
+			<a href="${pageContext.request.contextPath}/goTakePhoto.do"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus">add</a>
 			<a href="#outfits"
 				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Outfits</a>
 		</div>
@@ -56,7 +55,7 @@
 		</div>
 		<!-- /content -->
 
-		<div data-role="footer">
+		<div data-role="footer" data-position="fixed">
 			<h2>Outfits</h2>
 			<a href="#"
 				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus">Add</a>

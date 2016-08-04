@@ -37,6 +37,6 @@
 
 	</div>
 
-	<script src="../../resources/js/search.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/scripts/search.js"></script>
 </body>
 </html>

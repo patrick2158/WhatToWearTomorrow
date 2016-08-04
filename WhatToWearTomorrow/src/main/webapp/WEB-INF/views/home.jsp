@@ -24,7 +24,7 @@
 		<!-- /header -->
 
 		<div role="main" class="ui-content">
-			<p>Page content goes here.</p>
+			<p>"${sessionScope.people.name}"님,</p>
 		</div>
 		<!-- /content -->
 
