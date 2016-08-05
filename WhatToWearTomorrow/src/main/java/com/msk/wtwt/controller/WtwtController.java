@@ -52,7 +52,7 @@ public class WtwtController {
 
 	@RequestMapping(value = "/goClothes.do")
 	public ModelAndView goClothes(HttpSession session) {
-		People person = (People) session.getAttribute("people");
+		People person = (People) session.getAttribute("person");
 		List<Items> itemList = itemsService.selcetByEmail(person.getEmail());
 		
 		ModelAndView mav = new ModelAndView("clothes");
@@ -81,9 +81,9 @@ public class WtwtController {
 
 	@RequestMapping(value = "/checkId.do")
 	public ModelAndView checkId(@RequestParam(value="email") String email) {
-		People people =  peopleService.selcetPerson(email);
+		People person =  peopleService.selcetPerson(email);
 		boolean flag = false;
-		if(people == null) {
+		if(person == null) {
 			flag = true;
 		}
 
@@ -93,19 +93,19 @@ public class WtwtController {
 	}
 
 	@RequestMapping(value="/join.do")
-	public String join(People people, HttpSession session){
-		peopleService.addPerson(people);
-		session.setAttribute("people", people);
+	public String join(People person, HttpSession session){
+		peopleService.addPerson(person);
+		session.setAttribute("person", person);
 		return "home";
 	}
 
 	@RequestMapping(value="/login.do")
-	public String login(People people, HttpSession session){
+	public String login(People person, HttpSession session){
 		String result = "";
-		People p =  peopleService.selcetPerson(people.getEmail());
+		People p =  peopleService.selcetPerson(person.getEmail());
 
-		if(p != null && (people.getPassword()).equals(p.getPassword())) {
-			session.setAttribute("people", p);
+		if(p != null && (person.getPassword()).equals(p.getPassword())) {
+			session.setAttribute("person", p);
 			result = "home";
 		} else {
 			result = "login";
@@ -135,7 +135,7 @@ public class WtwtController {
 		People person = (People) session.getAttribute("people");
 		item.setEmail(person.getEmail());
 		itemsService.addItem(item);
-		return "clothes";
+		return "redirect:/goClothes.do";
 	}
 
 }

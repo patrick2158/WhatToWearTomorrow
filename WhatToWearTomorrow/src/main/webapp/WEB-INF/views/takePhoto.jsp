@@ -54,8 +54,7 @@
 				Next</button>
 		</div>
 		<!-- /footer -->
-		<script type="text/javascript"
-			src="${pageContext.request.contextPath}/resources/scripts/imgAreaSelect.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/scripts/imgAreaSelect.js"></script>
 	</div>
 	<!-- /page -->
 </body>

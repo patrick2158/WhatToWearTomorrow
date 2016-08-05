@@ -23,7 +23,7 @@
 		<!-- /header -->
 
 		<div role="main" class="ui-content">
-			<p>"${sessionScope.people.name}"님,</p>
+			<p>"${sessionScope.person.name}"님,</p>
 		</div>
 		<!-- /content -->
 
