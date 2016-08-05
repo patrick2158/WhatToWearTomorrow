@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +11,8 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 <link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/resources/css/responsiveListview.css" />
+<link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/footer.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
@@ -18,7 +21,7 @@
 <body>
 
 	<!-- Start of first page -->
-	<div data-role="page" id="items">
+	<div data-role="page" id="items" data-theme="b" class="my-page">
 
 		<div data-role="header">
 			<jsp:include page="../../resources/jsp/header.jsp"></jsp:include>
@@ -26,7 +29,14 @@
 		<!-- /header -->
 
 		<div role="main" class="ui-content">
-			<p>I'm first in the source order so I'm shown as the page.</p>
+			<ul data-role="listview" data-inset="true">
+				<c:forEach var="item" items="${itemList}">
+					<li><img src="${item.img_path}" class="ui-li-thumb">
+						<h2>${item.name}</h2>
+						<p>${item.price}</p>
+						<p class="ui-li-aside">${item.brand}</p></li>
+				</c:forEach>
+			</ul>
 		</div>
 		<!-- /content -->
 

@@ -14,10 +14,11 @@
 		<result property="price" column="PRICE" />
 		<result property="item_size" column="ITEM_SIZE" />
 		<result property="email" column="EMAIL" />
+		<result property="img_path" column="IMG_PATH" />
 	</resultMap>
 	
 	<insert id="insertItem" parameterType="com.msk.wtwt.dto.Items" >
-		INSERT INTO ITEMS (ITEM_NUM, NAME, BRAND, SEASON, CATEGORY, PRICE, ITEM_SIZE, EMAIL) VALUES (SEQ_ITEMS.NEXTVAL, #{name}, #{brand}, #{season}, #{category}, #{price}, #{item_size}, #{email})
+		INSERT INTO ITEMS (ITEM_NUM, NAME, BRAND, SEASON, CATEGORY, PRICE, ITEM_SIZE, EMAIL, IMG_PATH) VALUES (SEQ_ITEMS.NEXTVAL, #{name}, #{brand}, #{season}, #{category}, #{price}, #{item_size}, #{email}, #{img_path})
 	</insert>	
 
 	<select id="selectByEmail" resultMap="itemsResultMap" parameterType="String">

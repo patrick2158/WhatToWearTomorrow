@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -32,9 +31,11 @@
 		<!-- /header -->
 
 		<div role="main" class="ui-content" id="main">
-			<canvas id="cview" width="100%"></canvas>
+			<img alt="Image not loading" src="${img_path}">
 			<form action="${pageContext.request.contextPath}/saveItem.do"
-				method="post" enctype="multipart/form-data">
+				method="post">
+				<input name="img_path" id="img_path" value="${img_path}"
+					data-clear-btn="true" type="hidden">
 				<ul data-role="listview" data-inset="true">
 					<li class="ui-field-contain"><label for="name">Name: </label>
 						<input name="name" id="name" value="" data-clear-btn="true"
@@ -74,18 +75,19 @@
 					</li>
 				</ul>
 			</form>
-			<!-- /content -->
-
-
-			<div data-role="footer" data-position="fixed">
-				<h2>Step 3. Save a Item</h2>
-				<a href="${pageContext.request.contextPath}/goTakePhoto.do"
-					class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-l">Back</a>
-				<a href="#popup"
-					class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-left ui-icon-check">Save</a>
-			</div>
-			<!-- /footer -->
 		</div>
-		<!-- /page -->
+		<!-- /content -->
+
+
+		<div data-role="footer" data-position="fixed">
+			<h2>Step 3. Save a Item</h2>
+			<a href="${pageContext.request.contextPath}/goTakePhoto.do"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-l">Back</a>
+			<a href="#popup"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-left ui-icon-check">Save</a>
+		</div>
+		<!-- /footer -->
+	</div>
+	<!-- /page -->
 </body>
 </html>

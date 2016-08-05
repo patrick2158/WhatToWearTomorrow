@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -35,10 +34,12 @@
 			<form id="upload"
 				action="${pageContext.request.contextPath}/uploadImage.do"
 				method="post" enctype="multipart/form-data">
-				
-				<label for="fileUpload" class="ui-btn ui-btn-icon-top ui-icon-camera">Camera</label><input
-					type="file" name="image" accept="image/*" id="fileUpload" capture="camera" style="display: none" />
-				<img id="preview" />
+				<input type="hidden" name="x1" value="" /> <input type="hidden"
+					name="y1" value="" /> <input type="hidden" name="x2" value="" />
+				<input type="hidden" name="y2" value="" /> <label for="fileUpload"
+					class="ui-btn ui-btn-icon-top ui-icon-camera">Camera</label><input
+					type="file" name="image" accept="image/*" id="fileUpload"
+					capture="camera" style="display: none" /> <img id="preview" />
 			</form>
 		</div>
 		<!-- /content -->
@@ -53,66 +54,9 @@
 				Next</button>
 		</div>
 		<!-- /footer -->
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/resources/scripts/imgAreaSelect.js"></script>
 	</div>
-
-	<script>
-	$("#fileUpload").on('change', function () {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-				 $("#preview").attr("src", e.target.result);
-            }
-            reader.readAsDataURL($(this)[0].files[0]);
-            
-			$("#msg").html("Step2. cut item out of photo");
-			
-			$("#preview").imgAreaSelect({
-				handles: true,
-				onSelectEnd: null
-			});
-    });
-	
-/* 		function handleImageView(files) {
-			var file = files[0];
-					
-			var reader = new FileReader();
-			reader.onload = function(e) {
-				var img = new Image();
-				img.onload = function() {
-					var ctx = document.getElementById("cview").getContext("2d");
-					var x = $(".ui-content").width();
-					var w = parseInt(img.width);
-					var h = parseInt(img.height);
-					var y;
-
-					ctx.canvas.width = x;
-
-					if (w > x) {
-						y = x * h / w;
-						ctx.canvas.height = y;
-						ctx.drawImage(img, 0, 0, x, y);
-					} else {
-						w = x / 2 - w /2;
-						ctx.canvas.height = h; 
-						ctx.drawImage(img, w, 0);	
-					}
-				}
-						
-				img.src = e.target.result;
-				$("#msg").html("Step2. cut item out of photo");
-				$("#cview").imgAreaSelect({
-					handles: true,
-					onSelectEnd: null
-				});
-			}
-			reader.readAsDataURL(file);
-		} */
-				
-		$(document).ready(function() {
-			$("#next").click(function(e) {
-				$("#upload").submit();
-			})
-		});
-	</script>
 	<!-- /page -->
 </body>
 </html>

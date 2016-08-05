@@ -9,13 +9,14 @@ public class Items {
 	private double price;
 	private String item_size;
 	private String email;
+	private String img_path;
 
 	public Items() {
 		super();
 	}
 
 	public Items(int item_num, String name, String brand, String season, String category, double price,
-			String item_size, String email) {
+			String item_size, String email, String img_path) {
 		super();
 		this.item_num = item_num;
 		this.name = name;
@@ -25,6 +26,7 @@ public class Items {
 		this.price = price;
 		this.item_size = item_size;
 		this.email = email;
+		this.img_path = img_path;
 	}
 
 	public int getItem_num() {
@@ -91,11 +93,19 @@ public class Items {
 		this.email = email;
 	}
 
+	public String getImg_path() {
+		return img_path;
+	}
+
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
+	}
+
 	@Override
 	public String toString() {
-		return "Items [item_num=" + item_num + ", name=" + name + ", brand=" + brand
-				+ ", season=" + season + ", category=" + category + ", price=" + price + ", item_size=" + item_size
-				+ ", email=" + email + "]";
+		return "Items [item_num=" + item_num + ", name=" + name + ", brand=" + brand + ", season=" + season
+				+ ", category=" + category + ", price=" + price + ", item_size=" + item_size + ", email=" + email
+				+ ", img_path=" + img_path + "]";
 	}
 
 }
