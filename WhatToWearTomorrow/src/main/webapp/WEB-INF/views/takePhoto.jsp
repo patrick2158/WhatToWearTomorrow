@@ -41,7 +41,7 @@
 				<input type="hidden" name="y2" value="" /> <label for="fileUpload"
 					class="ui-btn ui-btn-icon-top ui-icon-camera">Camera</label><input
 					type="file" name="image" accept="image/*" id="fileUpload"
-					capture="camera" style="display: none" /> <img id="preview" />
+					capture="camera" style="display: none" /> <img id="preview" style="width: 100%;"/>
 			</form>
 		</div>
 		<!-- /content -->
