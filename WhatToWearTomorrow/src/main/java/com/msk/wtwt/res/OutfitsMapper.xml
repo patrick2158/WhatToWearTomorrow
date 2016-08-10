@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	 
+<mapper namespace="com.msk.wtwt.mapper.OutfitsMapper">
+
+	<resultMap type="com.msk.wtwt.dto.Outfits" id="outfitsResultMap">
+		<result property="outfit_num" column="OUTFIT_NUM" />
+		<result property="outfit_share" column="OUTFIT_SHARE" />
+		<result property="caption" column="CAPTION" />
+		<result property="email" column="EMAIL" />
+		<result property="img_path" column="IMG_PATH" />
+	</resultMap>
+	
+	<insert id="insertOutfit" parameterType="com.msk.wtwt.dto.Outfits" >
+		INSERT INTO OUTFITS (OUTFIT_NUM, OUTFIT_SHARE, CAPTION, EMAIL, IMG_PATH) VALUES (SEQ_OUTFITS.NEXTVAL, #{outfit_share}, #{caption}, #{email}, #{img_path})
+	</insert>	
+
+	<select id="selectByEmail" resultMap="outfitsResultMap" parameterType="String">
+		SELECT * FROM OUTFITS WHERE email=#{email}
+	</select>
+
+	<update id="updateOutfit" parameterType="com.msk.wtwt.dto.Outfits">
+		UPDATE OUTFITS SET OUTFIT_SHARE=#{outfit_share}, CAPTION=#{caption}, IMG_PATH=#{img_path} WHERE OUTFIT_NUM=#{outfit_num}
+	</update>
+	
+	<delete id="deleteOutfit" parameterType="int">
+		DELETE OUTFITS WHERE OUTFIT_NUM=#{outfit_num}
+	</delete>
+	
+</mapper>

@@ -22,6 +22,11 @@ public class Image {
 		super();
 	}
 
+	public Image(MultipartFile image) {
+		super();
+		this.image = image;
+	}
+
 	public Image(MultipartFile image, int x1, int y1, int x2, int y2) {
 		super();
 		this.image = image;
@@ -76,14 +81,35 @@ public class Image {
 		return "Image [image=" + image + ", x1=" + x1 + ", y1=" + y1 + ", x2=" + x2 + ", y2=" + y2 + "]";
 	}
 
-	public String cropImage() throws IOException {
+	
+	public File makeDir() {
 		String rootPath = System.getProperty("catalina.home");
 		File dir = new File(rootPath + File.separator + "tmpFiles");
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
 		
+		return dir;
+	}
+	
+	public String makeFileName() {
 		String fileName = System.currentTimeMillis() + image.getOriginalFilename();
+		return fileName;
+	}
+	
+	public String saveOutfit() throws IllegalStateException, IOException {
+		File dir = makeDir();
+		String fileName = makeFileName();
+		
+		File outputFile = new File(dir, fileName);
+		image.transferTo(outputFile);
+		
+		return fileName;
+	}
+	
+	public String cropImage() throws IOException {
+		File dir = makeDir();
+		String fileName = makeFileName();
 		File outputFile = new File(dir, fileName);
 		
 		String ext = FilenameUtils.getExtension(fileName);

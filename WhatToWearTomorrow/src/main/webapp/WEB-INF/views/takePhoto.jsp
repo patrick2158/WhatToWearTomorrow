@@ -9,17 +9,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-<link rel="stylesheet" type="text/css"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/imgareaselect-default.css" />
-<link rel="stylesheet" type="text/css"
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/footer.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
 	src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script type="text/javascript"
+<script
 	src="${pageContext.request.contextPath}/resources/scripts/jquery.min.js"></script>
-<script type="text/javascript"
+<script
 	src="${pageContext.request.contextPath}/resources/scripts/jquery.imgareaselect.pack.js"></script>
+<script
+	src="${pageContext.request.contextPath}/resources/scripts/imgAreaSelect.js"></script>
 </head>
 <body>
 
@@ -54,7 +56,6 @@
 				Next</button>
 		</div>
 		<!-- /footer -->
-		<script src="${pageContext.request.contextPath}/resources/scripts/imgAreaSelect.js"></script>
 	</div>
 	<!-- /page -->
 </body>

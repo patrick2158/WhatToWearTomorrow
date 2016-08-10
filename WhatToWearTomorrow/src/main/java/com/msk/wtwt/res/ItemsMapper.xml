@@ -26,7 +26,7 @@
 	</select>
 
 	<update id="updateItem" parameterType="com.msk.wtwt.dto.Items">
-		UPDATE ITEMS SET NAME=#{name}, BRAND=#{brand}, SEASON=#{season}, CATEGORY=#{category}, ITEM_SIZE=#{item_size}, EMAIL=#{email}, IMG_PATH=#{img_path} WHERE ITEM_NUM=#{item_num}
+		UPDATE ITEMS SET NAME=#{name}, BRAND=#{brand}, SEASON=#{season}, CATEGORY=#{category}, ITEM_SIZE=#{item_size}, IMG_PATH=#{img_path} WHERE ITEM_NUM=#{item_num}
 	</update>
 	
 	<delete id="deleteItem" parameterType="int">

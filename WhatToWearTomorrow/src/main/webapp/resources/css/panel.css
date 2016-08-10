@@ -1,0 +1,18 @@
+#outfits #items-panel.ui-panel {
+    width: 10em;
+}
+#outfits #items-panel.ui-panel-closed {
+    width: 0;
+}
+#outfits .ui-panel-page-content-position-left,
+.ui-panel-dismiss-open.ui-panel-dismiss-position-left {
+    left: 10em;
+    right: -10em;
+}
+#outfits .ui-panel-animate.ui-panel-page-content-position-left.ui-panel-page-content-display-reveal {
+    left: 0;
+    right: 0;
+    -webkit-transform: translate3d(10em,0,0);
+    -moz-transform: translate3d(10em,0,0);
+    transform: translate3d(10em,0,0);
+}
