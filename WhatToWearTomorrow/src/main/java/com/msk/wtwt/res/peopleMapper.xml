@@ -19,6 +19,10 @@
 	<select id="selectPerson" resultMap="peopleResultMap" parameterType="String">
 		SELECT * FROM people WHERE email=#{email}
 	</select>
+	
+	<select id="selectPersonByName" resultMap="peopleResultMap" parameterType="String">
+		SELECT * FROM people WhERE name LIKE #{name}
+	</select>
 
 	<update id="updatePerson" parameterType="com.msk.wtwt.dto.People">
 		UPDATE people SET password=#{password}, name=#{name}, sex=#{sex} WHERE email=#{email}

@@ -18,13 +18,13 @@
 
 		<div data-role="header">
 			<img alt="main image" id="photo"
-				src="${pageContext.request.contextPath}/resources/img/homeMain.jpg">
+				src="${pageContext.request.contextPath}/resources/img/homeMain.jpg" width="100%">
 		</div>
 		<!-- /header -->
 
 		<div role="main" class="ui-content">
 			<form action="${pageContext.request.contextPath}/join.do"
-				method="post">
+				method="post" data-ajax="false">
 				<ul data-role="listview" data-inset="true">
 					<li data-role="list-divider">What To Wear Tomorrow</li>
 					<li class="ui-field-contain"><input name="email" id="email"
@@ -36,12 +36,12 @@
 						value="" data-clear-btn="true" placeholder="Name" type="text"></li>
 					<li class="ui-field-contain"><div class="ui-grid-a">
 							<div class="ui-block-a">
-								<fieldset data-role="controlgroup" data-type="horizontal">
-									<input name="sex" id="radio-choice-h-2a" value="m"
+								<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+									<input name="sex" id="radio-choice-h-2a" value="M"
 										checked="checked" type="radio"> <label
-										for="radio-choice-h-2a">Male</label> <input name="sex"
-										id="radio-choice-h-2b" value="f" type="radio"> <label
-										for="radio-choice-h-2b">Female</label>
+										for="radio-choice-h-2a">Man</label> <input name="sex"
+										id="radio-choice-h-2b" value="W" type="radio"> <label
+										for="radio-choice-h-2b">Woman</label>
 								</fieldset>
 							</div>
 							<div class="ui-block-b">
@@ -57,7 +57,7 @@
 				<li data-role="list-divider">Do you already have registered an
 					account?</li>
 				<li class="ui-field-contain"><a
-					href="${pageContext.request.contextPath}/goLogin.do">Login</a></li>
+					href="${pageContext.request.contextPath}/goLogin.do" data-ajax="false">Login</a></li>
 			</ul>
 		</div>
 		<!-- /content -->

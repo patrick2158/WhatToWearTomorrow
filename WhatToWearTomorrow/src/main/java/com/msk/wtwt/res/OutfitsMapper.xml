@@ -13,12 +13,24 @@
 		<result property="img_path" column="IMG_PATH" />
 	</resultMap>
 	
+	<resultMap type="com.msk.wtwt.dto.Share" id="shareResultMap">
+		<result property="outfit_num" column="OUTFIT_NUM" />
+		<result property="name" column="NAME" />
+		<result property="caption" column="CAPTION" />
+		<result property="sex" column="SEX" />
+		<result property="img_path" column="IMG_PATH" />
+	</resultMap>
+	
 	<insert id="insertOutfit" parameterType="com.msk.wtwt.dto.Outfits" >
 		INSERT INTO OUTFITS (OUTFIT_NUM, OUTFIT_SHARE, CAPTION, EMAIL, IMG_PATH) VALUES (SEQ_OUTFITS.NEXTVAL, #{outfit_share}, #{caption}, #{email}, #{img_path})
 	</insert>	
 
 	<select id="selectByEmail" resultMap="outfitsResultMap" parameterType="String">
 		SELECT * FROM OUTFITS WHERE email=#{email}
+	</select>
+	
+	<select id="selectByShare" resultMap="shareResultMap">
+		SELECT OUTFIT_NUM, NAME, CAPTION, SEX, IMG_PATH FROM OUTFITS o JOIN PEOPLE p ON p.EMAIL = o.EMAIL WHERE OUTFIT_SHARE = 'Y' 
 	</select>
 
 	<update id="updateOutfit" parameterType="com.msk.wtwt.dto.Outfits">

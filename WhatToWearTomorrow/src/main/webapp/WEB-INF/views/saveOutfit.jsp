@@ -22,15 +22,15 @@
 
 	<div data-role="page">
 
-		<div data-role="header">
-			<jsp:include page="../../resources/jsp/header.jsp"></jsp:include>
+		<div data-role="header" data-position="fixed">
+					<h2>Save a outfit</h2>
 		</div>
 		<!-- /header -->
 
 		<div role="main" class="ui-content" id="main">
 			<img alt="Image not loading" src="${img_path}">
 			<form action="${pageContext.request.contextPath}/saveOutfit.do"
-				method="post">
+				method="post" data-ajax="false">
 				<input name="img_path" id="img_path" value="${img_path}"
 					data-clear-btn="true" type="hidden">
 				<ul data-role="listview" data-inset="true">
@@ -45,7 +45,7 @@
 						<fieldset class="ui-grid-a">
 							<div class="ui-block-a">
 								<a href="#" data-rel="back"
-									class="ui-btn ui-corner-all ui-btn-a">Cancel</a>
+									class="ui-btn ui-corner-all ui-btn-a" data-direction="reverse" data-ajax="false">Cancel</a>
 							</div>
 							<div class="ui-block-b">
 								<button type="submit" class="ui-btn ui-corner-all ui-btn-a">Save</button>
@@ -59,7 +59,7 @@
 
 
 		<div data-role="footer" data-position="fixed">
-			<h2>Step 2. Save a outfit</h2>
+			<jsp:include page="../../resources/jsp/footer.jsp"></jsp:include>
 		</div>
 		<!-- /footer -->
 	</div>

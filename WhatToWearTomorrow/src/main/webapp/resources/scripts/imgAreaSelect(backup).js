@@ -6,7 +6,7 @@ $(document).ready(function() {
 		}
 		reader.readAsDataURL($(this)[0].files[0]);
 		
-		$("#msg").html("Step2. cut item out of photo");
+		$("#msg").html("Cut item out of photo");
 		
 		$("#preview").imgAreaSelect({
 			handles : true,

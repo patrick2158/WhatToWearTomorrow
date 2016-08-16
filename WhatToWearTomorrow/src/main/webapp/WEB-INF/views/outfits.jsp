@@ -15,6 +15,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/responsiveListview.css" />
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/header.css" />
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/footer.css" />
 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script
@@ -24,20 +26,25 @@
 
 	<div data-role="page" id="outfits" class="my-page">
 
-		<div data-role="header">
-			<jsp:include page="../../resources/jsp/header.jsp"></jsp:include>
+		<div data-role="header" data-position="fixed">
+			<h2>Outfits</h2>
+			<a href="${pageContext.request.contextPath}/goMakeOutfit.do"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-left ui-btn-icon-left ui-icon-plus" data-ajax="false">Add</a>
+			<a href="${pageContext.request.contextPath}/goClothes.do"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini header-button-right ui-btn-icon-right ui-icon-carat-r" data-ajax="false">Items</a>
 		</div>
 		<!-- /header -->
 
 		<div role="main" class="ui-content">
- 			<ul data-role="listview" data-inset="true">
+			<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search outfits...">
 				<c:forEach var="outfit" items="${outfitList}">
 					<li><a href="#${outfit.outfit_num}" data-rel="popup"
 						data-position-to="window" data-transition="fade"><img
 							src="${outfit.img_path}" class="ui-li-thumb">
 							<h2>${outfit.caption}</h2>
 							<p>SHARE: ${outfit.outfit_share}</p></a></li>
-					<div data-role="popup" id="${outfit.outfit_num}" data-corners="false">
+					<div data-role="popup" id="${outfit.outfit_num}"
+						data-corners="false">
 						<a href="#" data-rel="back"
 							class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img
 							class="popphoto" src="${outfit.img_path}"
@@ -49,11 +56,7 @@
 		<!-- /content -->
 
 		<div data-role="footer" data-position="fixed">
-			<h2>Outfits</h2>
-			<a href="${pageContext.request.contextPath}/goMakeOutfit.do"
-				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-plus">Add</a>
-			<a href="${pageContext.request.contextPath}/goClothes.do"
-				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Items</a>
+			<jsp:include page="../../resources/jsp/footer.jsp"></jsp:include>
 		</div>
 
 	</div>

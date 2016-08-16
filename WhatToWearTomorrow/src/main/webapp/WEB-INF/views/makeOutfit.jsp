@@ -12,6 +12,8 @@
 	href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 <link rel="stylesheet"
 	href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/header.css" />
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath}/resources/css/footer.css" />
 <link rel="stylesheet" type="text/css"
@@ -29,30 +31,30 @@
 
 	<div data-role="page" id="outfits">
 
-		<div data-role="header">
-			<jsp:include page="../../resources/jsp/header.jsp"></jsp:include>
+		<div data-role="header" data-position="fixed">
+			<div data-role="controlgroup" data-type="horizontal"
+				class="ui-mini ui-btn-inline ui-btn-left">
+				<a href="#" id="items" data-rel="back"
+					class="ui-btn ui-btn-icon-left ui-icon-delete" data-direction="reverse" data-ajax="false">Exit</a> <a
+					href="#items-panel" id="add"
+					class="ui-btn ui-btn-icon-left ui-icon-plus" data-ajax="false">Item</a>
+			</div>
+			<a href="#" id="next"
+				class="ui-btn ui-corner-all ui-btn-inline ui-mini ui-btn-right ui-btn-icon-right ui-icon-carat-r" data-ajax="false">Next</a>
+			<h2 id="msg"> New look</h2>
 		</div>
 		<!-- /header -->
 
-		<div role="main"  id="outfits-main" class="ui-content"></div>
-			<form method="post" enctype="multipart/form-data"
-				action="${pageContext.request.contextPath}/makeOutfit.do"
-				id="makeOutfit">
-				<input type="hidden" name="image" id="image" value="" />
-			</form>
+		<div role="main" id="outfits-main" class="ui-content"></div>
+		<form method="post" enctype="multipart/form-data"
+			action="${pageContext.request.contextPath}/makeOutfit.do"
+			id="makeOutfit" data-ajax="false">
+			<input type="hidden" name="image" id="image" value="" />
+		</form>
 		<!-- /content -->
 
 		<div data-role="footer" data-position="fixed">
-			<h2 id="msg">Step 1. Make a outfit</h2>
-			<div data-role="controlgroup" data-type="horizontal"
-				class="ui-mini ui-btn-inline footer-button-left">
-				<a href="#" id="items" data-rel="back"
-					class="ui-btn ui-btn-icon-left ui-icon-delete">Cancel</a> <a
-					href="#items-panel" id="add"
-					class="ui-btn ui-btn-icon-left ui-icon-plus">Items</a>
-			</div>
-			<a href="#" id="next"
-				class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">Next</a>
+			<jsp:include page="../../resources/jsp/footer.jsp"></jsp:include>
 		</div>
 
 		<div data-role="panel" id="items-panel">
@@ -101,8 +103,8 @@
 												$("#outfits-main")
 														.append(
 																"<a class='draggable'><img alt='" + this.alt + "' src='" + this.src + "'></a>");
-
 												$(".draggable").draggable();
+												$("#msg").html("Lay out");
 											});
 
 							$("#next")

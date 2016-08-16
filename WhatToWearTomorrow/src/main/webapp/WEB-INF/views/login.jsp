@@ -19,11 +19,11 @@
 
 		<div role="main" class="ui-content">
 			<form action="${pageContext.request.contextPath}/login.do"
-				method="post">
+				method="post" data-ajax="false">
 				<ul data-role="listview" data-inset="true">
 					<li data-role="list-divider">What To Wear Tomorrow</li>
 					<li class="ui-field-contain"><input name="email" id="email"
-						value="" data-clear-btn="true" placeholder="Email" type="text"></li>
+						value="" data-clear-btn="true" placeholder="Email" type="email"></li>
 					<li class="ui-field-contain"><input name="password"
 						id="password" value="" data-clear-btn="true"
 						placeholder="Password" type="password"></li>
@@ -33,7 +33,7 @@
 			</form>
 			<ul data-role="listview" data-inset="true">
 				<li data-role="list-divider">Don't have an account yet?</li>
-				<li class="ui-field-contain"><a href="${pageContext.request.contextPath}/">Join</a></li>
+				<li class="ui-field-contain"><a href="${pageContext.request.contextPath}/" data-ajax="false">Join</a></li>
 			</ul>
 		</div>
 		<!-- /content -->

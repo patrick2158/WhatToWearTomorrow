@@ -9,6 +9,12 @@ public class People {
 	public People() {
 		super();
 	}
+	
+	public People(String email, String password) {
+		super();
+		this.email = email;
+		this.password = password;
+	}
 
 	public People(String email, String password, String name, char sex) {
 		super();

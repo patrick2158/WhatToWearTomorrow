@@ -1,5 +1,7 @@
 package com.msk.wtwt.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,6 +28,12 @@ public class PeopleService {
 		PeopleMapper peopleMapper = sqlSession.getMapper(PeopleMapper.class);
 		return peopleMapper.selectPerson(email);
 	}
+	
+	public List<People> searchPersonByName(String name) {
+		PeopleMapper peopleMapper = sqlSession.getMapper(PeopleMapper.class);
+		return peopleMapper.selectPersonByName(name);
+	}
+	
 	public void editPerson(People person) {
 		PeopleMapper peopleMapper = sqlSession.getMapper(PeopleMapper.class);
 		peopleMapper.updatePerson(person);

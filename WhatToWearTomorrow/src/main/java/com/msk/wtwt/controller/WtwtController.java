@@ -12,13 +12,13 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.servlet.ModelAndView;
 
 import com.msk.wtwt.dto.Image;
 import com.msk.wtwt.dto.Items;
 import com.msk.wtwt.dto.Outfits;
 import com.msk.wtwt.dto.People;
+import com.msk.wtwt.dto.Share;
 import com.msk.wtwt.service.ItemsService;
 import com.msk.wtwt.service.OutfitsService;
 import com.msk.wtwt.service.PeopleService;
@@ -58,8 +58,12 @@ public class WtwtController {
 	}
 
 	@RequestMapping(value = "/goHome.do")
-	public String goHome() {
-		return "home";
+	public ModelAndView goHome() {
+		List<Share> shareList = outfitsService.selcetByShare();
+		
+		ModelAndView mav = new ModelAndView("home");
+		mav.addObject("shareList", shareList);
+		return mav;
 	}
 
 	@RequestMapping(value = "/goClothes.do")
@@ -82,16 +86,21 @@ public class WtwtController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/goFavorites.do")
-	public String goFavorites() {
-		return "favorites";
+	@RequestMapping(value = "/goCalendar.do")
+	public String goCalendar() {
+		return "calendar";
 	}
 
 	@RequestMapping(value = "/goSearch.do")
 	public String goSearch() {
 		return "search";
 	}
-
+	
+	@RequestMapping(value = "/goUser.do")
+	public String goUser() {
+		return "user";
+	}
+	
 	@RequestMapping(value = "/goTakePhoto.do")
 	public String goTakePhoto() {
 		return "takePhoto";
@@ -129,17 +138,17 @@ public class WtwtController {
 	public String join(People person, HttpSession session){
 		peopleService.addPerson(person);
 		session.setAttribute("person", person);
-		return "home";
+		return "redirect:/goHome.do";
 	}
 
 	@RequestMapping(value="/login.do")
 	public String login(People person, HttpSession session){
 		String result = "";
 		People p =  peopleService.selcetPerson(person.getEmail());
-
+		
 		if(p != null && (person.getPassword()).equals(p.getPassword())) {
 			session.setAttribute("person", p);
-			result = "home";
+			result = "redirect:/goHome.do";
 		} else {
 			result = "login";
 		}
@@ -153,7 +162,7 @@ public class WtwtController {
 		String fileName;
 
 		try {
-			fileName = file.cropImage();
+			fileName = file.cropImageWithImgName();
 			mav.setViewName("saveItem");
 			mav.addObject("img_path", "/img/"+fileName);
 		} catch (IOException e) {
@@ -207,5 +216,32 @@ public class WtwtController {
 		outfit.setEmail(person.getEmail());
 		outfitsService.addOutfit(outfit);
 		return "redirect:/goOutfits.do";
+	}
+	
+	@RequestMapping(value="/resizeImage.do")
+	public ModelAndView resizeImage(Image image) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		String fileName = null;
+		
+		try {
+			fileName = image.resizeImage();
+			mav.addObject("imgName", fileName);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return mav;
+	}
+	
+	@RequestMapping(value="/searchName.do")
+	public ModelAndView searchName(@RequestParam(value="name") String name) {
+		ModelAndView mav = new ModelAndView("jsonView");
+		String namePattern = "%" + name + "%";
+		List<People> searchList = peopleService.searchPersonByName(namePattern);
+
+		mav.addObject("searchList", searchList);
+		
+		return mav;
 	}
 }

@@ -1,0 +1,14 @@
+.header-button-left, .header-button-right {
+	position: absolute;
+	margin: 0;
+	top: auto;
+	bottom: 0.24em;
+}
+
+.header-button-left {
+	left: 0.4em;
+}
+
+.header-button-right {
+	right: 0.4em;
+}

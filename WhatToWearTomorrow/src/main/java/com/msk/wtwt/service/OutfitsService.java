@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Component;
 
 import com.msk.wtwt.dto.Outfits;
+import com.msk.wtwt.dto.Share;
 import com.msk.wtwt.mapper.OutfitsMapper;
 
 @Component("outfitsService")
@@ -28,6 +29,13 @@ public class OutfitsService {
 		OutfitsMapper outfitsMapper  = sqlSession.getMapper(OutfitsMapper.class);
 		return outfitsMapper.selectByEmail(email);
 	}
+	
+	public List<Share> selcetByShare() {
+		OutfitsMapper outfitsMapper  = sqlSession.getMapper(OutfitsMapper.class);
+		return outfitsMapper.selectByShare();
+	}
+
+	
 	public void editOutfit(Outfits outfit) {
 		OutfitsMapper outfitsMapper  = sqlSession.getMapper(OutfitsMapper.class);
 		outfitsMapper.updateOutfit(outfit);
