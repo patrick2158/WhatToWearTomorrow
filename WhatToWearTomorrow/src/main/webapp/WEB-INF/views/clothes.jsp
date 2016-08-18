@@ -42,7 +42,7 @@
 						data-position-to="window" data-transition="fade"><img
 							src="${item.img_path}" class="ui-li-thumb">
 							<h2>${item.name}</h2>
-							<p>${item.category}, ${item.item_size}, ${item.price}</p>
+							<p>${item.season}, ${item.category}, ${item.item_size}, ${item.price}</p>
 							<p class="ui-li-aside">${item.brand}</p></a></li>
 					<div data-role="popup" id="${item.item_num}" data-corners="false">
 						<a href="#" data-rel="back"
