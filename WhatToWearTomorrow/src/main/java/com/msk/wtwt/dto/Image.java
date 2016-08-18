@@ -127,7 +127,7 @@ public class Image {
 		InputStream in = new ByteArrayInputStream(image.getBytes());
 		BufferedImage originalImage = ImageIO.read(in);
 		
-		BufferedImage resizeImage = Scalr.resize(originalImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, 270, 480, Scalr.OP_ANTIALIAS);
+		BufferedImage resizeImage = Scalr.resize(originalImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, 225, 400, Scalr.OP_ANTIALIAS);
 		
 		ImageIO.write(resizeImage, ext, outputFile);
 		
